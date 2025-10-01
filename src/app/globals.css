@@ -90,15 +90,43 @@ html, body {
 }
 
 
+/* Home Section full height */
 #home {
+  position: relative;
+  min-height: 100vh; /* supaya full layar */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* teks naik ke atas */
-  align-items: center;
+  justify-content: center; /* konten tetap di tengah */
   text-align: center;
-  height: 100vh;
-  padding-top: 100px; /* atur jarak dari atas */
+  padding: 2rem;
+  background: #fffde7; /* warna latar opsional */
 }
+
+/* Scroll down arrow */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;   /* jarak dari bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.scroll-down:hover {
+  opacity: 1;
+}
+
+/* animasi panah */
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
 
 #about {
   background: linear-gradient(180deg, #fff8e1 0%, #ffecb3 100%);
@@ -195,5 +223,228 @@ footer {
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+/* Section Game */
+.game-section {
+  background: linear-gradient(180deg, #fff, #f3e5f5);
+}
+
+/* Kotak 4 sisi */
+.game-preview {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.center-box .side {
+  width: 60px;
+  height: 60px;
+}
+
+.side.red { background: #ff4d4d; }
+.side.yellow { background: #ffeb3b; }
+.side.green { background: #4caf50; }
+.side.purple { background: #8e24aa; }
+
+/* Fitur List */
+.features {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.features li {
+  margin: 0.5rem 0;
+}
+
+/* Preview Screenshot */
+.preview-images {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.screenshot {
+  width: 200px;
+  height: 300px;
+  background: #ddd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Tombol Download / CTA */
+.download-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #3b0066;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #FFD700;
+  color: #3b0066;
+}
+.game-btn {
+  background: #3b0066;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.game-btn:hover {
+  background: #FFD700;
+  color: #3b0066;
+  transform: scale(1.05);
+}
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+.contact-btn {
+  background: #ff4d4d;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: #4caf50;
+  transform: scale(1.05);
+}
+.game-preview {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.center-box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px; /* ujung tumpul */
+  overflow: hidden;
+}
+
+.center-box .side {
+  flex: 1 1 50%;
+}
+
+.red {
+  background: #ff4d4d;
+}
+.yellow {
+  background: #ffeb3b;
+}
+.green {
+  background: #4caf50;
+}
+.purple {
+  background: #8e24aa;
+}
+
+/* animasi mutar */
+.rotating {
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.preview-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.preview-images figure {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.preview-images .img-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* semua gambar jadi ukuran sama */
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.preview-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* potong gambar agar pas */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.preview-images img:hover {
+  transform: scale(1.05);
+}
+
+.preview-images figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+  .preview-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .preview-images {
+    grid-template-columns: 1fr;
   }
 }

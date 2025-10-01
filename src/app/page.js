@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -46,12 +47,28 @@ export default function Home() {
           <div className="game-item purple"></div>
         </div>
 
+        {/* Tombol ke Game */}
+        <div style={{ marginTop: "2rem" }}>
+          <Link href="/game#game" scroll={false}>
+            <button className="game-btn">MAIN KAN SEKARANG!</button>
+          </Link>
+        </div>
+
+        {/* Panah ke bawah ke About */}
+        <a href="#about" className="scroll-down">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 16.5l-8-8h16l-8 8z" />
+          </svg>
+        </a>
+
         {/* Wave ke About */}
         <div className="wave">
-          <svg
-            viewBox="0 0 1440 320"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
             <path
               fill="#ffecb3"
               d="M0,160L80,170.7C160,181,320,203,480,197.3C640,192,800,160,960,165.3C1120,171,1280,213,1360,234.7L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
@@ -71,18 +88,17 @@ export default function Home() {
           nuansa ceria, penuh warna, dan gaya kartunis minimalis.
         </p>
 
-        
         <div className="wave">
-  <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
-    <path
-      fill="#ffecb3"
-      d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200 120 L0 120 Z"
-    />
-  </svg>
-</div>
+          <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="#ffecb3"
+              d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200 120 L0 120 Z"
+            />
+          </svg>
+        </div>
       </section>
 
-      
+      {/* CONTACT */}
       <section id="contact" className="section">
         <h1>Contact Us</h1>
         <p>
