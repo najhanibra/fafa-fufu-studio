@@ -10,7 +10,6 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">Fafa-Fufu Studio</div>
 
-      {/* Tombol Hamburger */}
       <button
         className="hamburger"
         onClick={() => setIsOpen(!isOpen)}
@@ -19,7 +18,6 @@ const Navbar = () => {
         ☰
       </button>
 
-      {/* Menu */}
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li><a href="/#home">Home</a></li>
         <li><Link href="/game">Game</Link></li>

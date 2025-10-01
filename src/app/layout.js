@@ -1,17 +1,21 @@
 import "./globals.css";
+import Navbar from "./components/navbar"; 
 
 export const metadata = {
-  title: "Tap n Match",
-  description: "Game puzzle refleks seru dari Fafa-Fufu Studio",
+  title: "Fafa fafa studio",
+  description: "Fafa-Fufu Studio adalah develop game inde",
   icons: {
-    icon: "/images/logo.png", 
+    icon: "/images/logo.png",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

@@ -11,7 +11,7 @@ html, body {
   color: #222;
 }
 
-/* Navbar */
+/* ==================== NAVBAR ==================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -26,45 +26,60 @@ html, body {
 .logo {
   font-size: 1.6rem;
   font-weight: bold;
-  font-family: 'Righteous', cursive; /* pakai font logo */
+  font-family: 'Righteous', cursive;
   color: #FFD700; /* kuning emas */
 }
 
-.navbar ul {
+/* Menu utama */
+.nav-links {
   display: flex;
   gap: 1rem;
   list-style: none;
+  transition: max-height 0.3s ease-in-out;
 }
 
-.navbar ul li {
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.navbar ul li a {
+.nav-links li a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
 }
 
-.navbar ul li a:hover {
+.nav-links li a:hover {
   color: #FFD700;
+}
+
+/* Tombol Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 0.5rem;
+  .hamburger {
+    display: block;
   }
 
-  .navbar ul {
+  .nav-links {
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    background: #3b0066;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links.open {
+    max-height: 300px; /* muncul saat toggle */
+    padding: 1rem 0;
   }
 }
 
+/* ==================== SECTION ==================== */
 .section {
   min-height: 100vh;
   padding: 4rem 2rem;
@@ -77,11 +92,11 @@ html, body {
 
 @media (max-width: 768px) {
   .section {
-    padding: 6rem 1.5rem 4rem; /* lebih lega di atas, supaya header tidak nabrak */
+    padding: 6rem 1.5rem 4rem;
   }
 
   section h1, section h2 {
-    font-size: 1.8rem; /* lebih kecil biar muat */
+    font-size: 1.8rem;
   }
 
   section p {
@@ -89,59 +104,6 @@ html, body {
   }
 }
 
-
-/* Home Section full height */
-#home {
-  position: relative;
-  min-height: 100vh; /* supaya full layar */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* konten tetap di tengah */
-  text-align: center;
-  padding: 2rem;
-  background: #fffde7; /* warna latar opsional */
-}
-
-/* Scroll down arrow */
-.scroll-down {
-  position: absolute;
-  bottom: 20px;   /* jarak dari bawah */
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 1.5s infinite;
-  cursor: pointer;
-  opacity: 0.7;
-}
-
-.scroll-down:hover {
-  opacity: 1;
-}
-
-/* animasi panah */
-@keyframes bounce {
-  0%, 100% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, 10px);
-  }
-}
-
-
-#about {
-  background: linear-gradient(180deg, #fff8e1 0%, #ffecb3 100%);
-  position: relative;
-}
-
-
-#contact {
-  background-color: #e8f5e9; /* hijau muda */
-  background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
-    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* Section teks */
 section h1, section h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -154,15 +116,19 @@ section p {
   color: #333;
 }
 
-/* Footer */
-footer {
-  background: #3b0066;
-  color: white;
+/* ==================== HOME ==================== */
+#home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  padding: 1rem;
-  font-family: 'Righteous', cursive;
+  padding: 2rem;
+  background: #fffde7;
 }
 
+/* Bola jatuh */
 .falling-ball {
   position: absolute;
   top: -30px;
@@ -173,20 +139,50 @@ footer {
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(-50px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
+  0% { transform: translateY(-50px); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
 }
-/* Item Game Tap n Match */
+
+/* Scroll down arrow */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounceDown 1.5s infinite;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.scroll-down:hover {
+  opacity: 1;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+/* ==================== ABOUT ==================== */
+#about {
+  background: linear-gradient(180deg, #fff8e1 0%, #ffecb3 100%);
+  position: relative;
+}
+
+/* ==================== CONTACT ==================== */
+#contact {
+  background-color: #e8f5e9;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ==================== GAME ITEMS ==================== */
 .game-items {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .game-item {
@@ -196,161 +192,17 @@ footer {
   animation: bounce 2s infinite ease-in-out;
 }
 
-.game-item.red {
-  background: #ff4d4d;
-  animation-delay: 0s;
-}
+.game-item.red { background: #ff4d4d; animation-delay: 0s; }
+.game-item.yellow { background: #ffeb3b; animation-delay: 0.2s; }
+.game-item.green { background: #4caf50; animation-delay: 0.4s; }
+.game-item.purple { background: #8e24aa; animation-delay: 0.6s; }
 
-.game-item.yellow {
-  background: #ffeb3b;
-  animation-delay: 0.2s;
-}
-
-.game-item.green {
-  background: #4caf50;
-  animation-delay: 0.4s;
-}
-
-.game-item.purple {
-  background: #8e24aa;
-  animation-delay: 0.6s;
-}
-
-/* Animasi mantul */
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-/* Section Game */
-.game-section {
-  background: linear-gradient(180deg, #fff, #f3e5f5);
-}
-
-/* Kotak 4 sisi */
-.game-preview {
-  margin: 2rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-box {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.center-box .side {
-  width: 60px;
-  height: 60px;
-}
-
-.side.red { background: #ff4d4d; }
-.side.yellow { background: #ffeb3b; }
-.side.green { background: #4caf50; }
-.side.purple { background: #8e24aa; }
-
-/* Fitur List */
-.features {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  line-height: 2rem;
-}
-
-.features li {
-  margin: 0.5rem 0;
-}
-
-/* Preview Screenshot */
-.preview-images {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.screenshot {
-  width: 200px;
-  height: 300px;
-  background: #ddd;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-/* Tombol Download / CTA */
-.download-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  background: #3b0066;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.download-btn:hover {
-  background: #FFD700;
-  color: #3b0066;
-}
-.game-btn {
-  background: #3b0066;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.game-btn:hover {
-  background: #FFD700;
-  color: #3b0066;
-  transform: scale(1.05);
-}
-@keyframes bounceDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-}
-.contact-btn {
-  background: #ff4d4d;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-btn:hover {
-  background: #4caf50;
-  transform: scale(1.05);
-}
+/* ==================== GAME PREVIEW ==================== */
 .game-preview {
   display: flex;
   justify-content: center;
@@ -363,40 +215,25 @@ footer {
   height: 120px;
   display: flex;
   flex-wrap: wrap;
-  border-radius: 20px; /* ujung tumpul */
+  border-radius: 20px;
   overflow: hidden;
 }
 
-.center-box .side {
-  flex: 1 1 50%;
-}
+.center-box .side { flex: 1 1 50%; }
 
-.red {
-  background: #ff4d4d;
-}
-.yellow {
-  background: #ffeb3b;
-}
-.green {
-  background: #4caf50;
-}
-.purple {
-  background: #8e24aa;
-}
+.red { background: #ff4d4d; }
+.yellow { background: #ffeb3b; }
+.green { background: #4caf50; }
+.purple { background: #8e24aa; }
 
-/* animasi mutar */
-.rotating {
-  animation: rotate 6s linear infinite;
-}
-
+/* mutar */
+.rotating { animation: rotate 6s linear infinite; }
 @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
+
+/* ==================== PREVIEW IMAGES ==================== */
 .preview-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -413,7 +250,7 @@ footer {
 
 .preview-images .img-box {
   width: 100%;
-  aspect-ratio: 16 / 9;  /* semua gambar jadi ukuran sama */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -421,7 +258,7 @@ footer {
 .preview-images img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* potong gambar agar pas */
+  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -436,62 +273,61 @@ footer {
   color: #555;
 }
 
-/* Responsif */
+/* Responsif gambar */
 @media (max-width: 992px) {
-  .preview-images {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .preview-images { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 600px) {
-  .preview-images {
-    grid-template-columns: 1fr;
-  }
+  .preview-images { grid-template-columns: 1fr; }
 }
-/* Tombol Hamburger */
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: white;
+
+/* ==================== BUTTON ==================== */
+.game-btn, .download-btn, .contact-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 12px;
   cursor: pointer;
-}
-
-/* Menu default */
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  transition: max-height 0.3s ease-in-out;
-}
-
-.nav-links li a {
-  color: white;
+  transition: 0.3s;
   text-decoration: none;
 }
 
-.nav-links li a:hover {
-  color: #FFD700;
+.game-btn {
+  background: #3b0066;
+  color: white;
+  border: none;
+}
+.game-btn:hover {
+  background: #FFD700;
+  color: #3b0066;
+  transform: scale(1.05);
 }
 
-/* Responsive Hamburger */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
+.download-btn {
+  background: #3b0066;
+  color: #fff;
+}
+.download-btn:hover {
+  background: #FFD700;
+  color: #3b0066;
+}
 
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    background: #3b0066;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-  }
+.contact-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+}
+.contact-btn:hover {
+  background: #4caf50;
+  transform: scale(1.05);
+}
 
-  .nav-links.open {
-    max-height: 300px; /* biar muncul saat toggle */
-    padding: 1rem 0;
-  }
+/* ==================== FOOTER ==================== */
+footer {
+  background: #3b0066;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Righteous', cursive;
 }
