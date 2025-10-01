@@ -58,7 +58,20 @@ html, body {
   cursor: pointer;
 }
 
-/* Responsive Navbar */
+/* Menu default */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Hamburger */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -74,7 +87,7 @@ html, body {
   }
 
   .nav-links.open {
-    max-height: 300px; /* muncul saat toggle */
+    max-height: 300px; /* biar muncul saat toggle */
     padding: 1rem 0;
   }
 }
