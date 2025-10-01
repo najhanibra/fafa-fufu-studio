@@ -1,26 +1,49 @@
-/* Wrapper Layout */
-.layout {
+/* Import font dari Google */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* Navbar top */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #6a0dad; /* ungu */
+  color: white;
   display: flex;
-  transition: transform 0.3s ease;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
 }
 
-/* Geser halaman 80px ke kiri saat sidebar muncul */
-.layout.shift {
-  transform: translateX(-80px);
+.title {
+  font-family: 'Righteous', sans-serif; /* Font Rightteorus/Righteous */
+  font-size: 20px;
 }
 
-/* Sidebar kanan */
+/* Tombol hamburger */
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none; /* sembunyikan di desktop */
+}
+
+/* Sidebar (mobile) */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -250px; /* sembunyi */
-  width: 250px;
+  right: -200px; /* sembunyi awal */
+  width: 200px;
   height: 100vh;
-  background: #2c3e50;
+  background: #6a0dad;
   color: white;
   transition: right 0.3s ease;
-  z-index: 1000;
-  padding-top: 60px;
+  z-index: 999;
+  padding-top: 70px;
 }
 
 .sidebar.open {
@@ -43,39 +66,24 @@
   font-size: 16px;
 }
 
-/* Navbar top */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: #34495e;
-  color: white;
+/* Link horizontal (desktop) */
+.nav-links {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-  z-index: 900;
+  gap: 20px;
 }
 
-.hamburger {
-  font-size: 22px;
-  background: none;
-  border: none;
+.nav-links a {
   color: white;
-  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-.title {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-/* Konten utama */
-.content {
-  margin-top: 60px;
-  padding: 20px;
-  flex: 1;
+/* Responsive: mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* muncul di mobile */
+  }
+  .nav-links {
+    display: none; /* sembunyi di mobile */
+  }
 }
