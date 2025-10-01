@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import "../app/globals.css"; // pastikan path sesuai
+import "../app/navbar.css"; // pastikan path sesuai
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

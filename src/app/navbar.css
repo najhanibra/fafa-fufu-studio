@@ -1,0 +1,71 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b0066; /* ungu gelap */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: 'Righteous', cursive;
+  color: #FFD700; /* kuning emas */
+}
+
+/* Tombol Hamburger */
+.hamburger {
+  display: none; /* default hidden (desktop) */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu Links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-links li a:hover {
+  color: #FFD700;
+}
+
+/* ===== Responsive Mode ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* tampil di mobile */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;           /* di bawah navbar */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    background: #3b0066;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links.open {
+    max-height: 300px;  /* terbuka saat toggle */
+    padding: 1rem 0;
+  }
+}
