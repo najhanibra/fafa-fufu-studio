@@ -1,0 +1,199 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b0066; /* ungu gelap */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: 'Righteous', cursive; /* pakai font logo */
+  color: #FFD700; /* kuning emas */
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.navbar ul li {
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  color: #FFD700;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 1.5rem 4rem; /* lebih lega di atas, supaya header tidak nabrak */
+  }
+
+  section h1, section h2 {
+    font-size: 1.8rem; /* lebih kecil biar muat */
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+}
+
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* teks naik ke atas */
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding-top: 100px; /* atur jarak dari atas */
+}
+
+#about {
+  background: linear-gradient(180deg, #fff8e1 0%, #ffecb3 100%);
+  position: relative;
+}
+
+
+#contact {
+  background-color: #e8f5e9; /* hijau muda */
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Section teks */
+section h1, section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  max-width: 800px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  background: #3b0066;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Righteous', cursive;
+}
+
+.falling-ball {
+  position: absolute;
+  top: -30px;
+  border-radius: 50%;
+  animation: fall linear forwards;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+/* Item Game Tap n Match */
+.game-items {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.game-item {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.game-item.red {
+  background: #ff4d4d;
+  animation-delay: 0s;
+}
+
+.game-item.yellow {
+  background: #ffeb3b;
+  animation-delay: 0.2s;
+}
+
+.game-item.green {
+  background: #4caf50;
+  animation-delay: 0.4s;
+}
+
+.game-item.purple {
+  background: #8e24aa;
+  animation-delay: 0.6s;
+}
+
+/* Animasi mantul */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
