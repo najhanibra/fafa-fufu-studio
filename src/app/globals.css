@@ -205,12 +205,29 @@ section p {
   color: #555;
 }
 
-/* Responsif gambar */
+/* Responsif: tablet 2 kolom */
 @media (max-width: 992px) {
-  .preview-images { grid-template-columns: repeat(2, 1fr); }
+  .preview-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+/* Responsif: mobile jadi horizontal scroll */
 @media (max-width: 600px) {
-  .preview-images { grid-template-columns: 1fr; }
+  .preview-images {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+
+  .preview-images figure {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+  }
 }
 
 /* ==================== BUTTON ==================== */
